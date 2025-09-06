@@ -1,0 +1,32 @@
+{
+  "name": "sistema-cpf-govbr",
+  "version": "1.0.0",
+  "description": "Sistema de Regularização CPF - Simulação Gov.br",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "npx serve dist -p 8000",
+    "build": "echo 'Arquivos já estão prontos para produção'",
+    "deploy": "echo 'Faça upload dos arquivos da pasta dist para seu servidor'"
+  },
+  "keywords": [
+    "cpf",
+    "govbr",
+    "regularizacao",
+    "darf",
+    "receita-federal"
+  ],
+  "author": "Sistema Gov.br",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/sistema-cpf-govbr.git"
+  },
+  "homepage": "https://seu-dominio.com"
+}

